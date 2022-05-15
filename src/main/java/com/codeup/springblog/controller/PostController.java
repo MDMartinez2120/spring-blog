@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/posts")
 public class PostController {
-    @GetMapping
+    @GetMapping()
     @ResponseBody
     public String allPosts() {
         return "This is where you would view all the posts";
