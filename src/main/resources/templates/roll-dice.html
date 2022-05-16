@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:replace="partials/partials.html :: head (title)">
     <meta charset="UTF-8">
     <title>Roll Dice</title>
 </head>
 <body>
+    <nav th:replace="partials/partials.html :: navbar"></nav>
     <h1>Guess a Number</h1>
 
     <a href="/roll-dice/1">number 1</a>

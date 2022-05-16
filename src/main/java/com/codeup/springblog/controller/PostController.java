@@ -1,21 +1,33 @@
 package com.codeup.springblog.controller;
 
+import com.codeup.springblog.model.Post;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/posts")
 public class PostController {
     @GetMapping()
-    @ResponseBody
-    public String allPosts() {
-        return "This is where you would view all the posts";
+//    @ResponseBody <- only use this when you want text to display.
+    public String allPosts(Model model) {
+        Post newPost1 = new Post("car", "buy this sweet ride", 1);
+        Post newPost2 = new Post("guitar", "buy this busted guitar", 2);
+        List<Post> allPosts = new ArrayList<>();
+        allPosts.add(newPost1);
+        allPosts.add(newPost2);
+
+        model.addAttribute("posts", allPosts);
+        return "posts/index";
     }
 
     @GetMapping("/{id}")
-    @ResponseBody
-    public String showOneAlbum(@PathVariable long id){
-        return "this is where you would view one album, with the id " + id;
+//    @ResponseBody
+    public String showOneAlbum(@PathVariable int id){
+        return  "posts/index";
     }
 
     @GetMapping("/create")
