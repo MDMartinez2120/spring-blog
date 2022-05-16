@@ -26,8 +26,9 @@ public class PostController {
 
     @GetMapping("/{id}")
 //    @ResponseBody
-    public String showOneAlbum(@PathVariable int id){
-        return  "posts/index";
+    public String showOneAlbum(@PathVariable int id, Model model){
+        model.addAttribute("id", id);
+        return  "posts/show";
     }
 
     @GetMapping("/create")
