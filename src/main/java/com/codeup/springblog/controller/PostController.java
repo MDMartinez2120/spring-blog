@@ -22,11 +22,12 @@ public class PostController {
     @GetMapping()
 //    @ResponseBody <- only use this when you want text to display.
     public String allPosts(Model model) {
-        Post newPost1 = new Post("car", "buy this sweet ride", 1);
-        Post newPost2 = new Post("guitar", "buy this busted guitar", 2);
-        List<Post> allPosts = new ArrayList<>();
-        allPosts.add(newPost1);
-        allPosts.add(newPost2);
+        List<Post>allPosts = postDao.findAll();
+//        Post newPost1 = new Post("car", "buy this sweet ride", 1);
+//        Post newPost2 = new Post("guitar", "buy this busted guitar", 2);
+//        List<Post> allPosts = new ArrayList<>();
+//        allPosts.add(newPost1);
+//        allPosts.add(newPost2);
 
         model.addAttribute("posts", allPosts);
         return "posts/index";
