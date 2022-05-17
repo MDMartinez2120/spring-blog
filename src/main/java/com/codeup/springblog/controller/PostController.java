@@ -34,9 +34,8 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
-//    @ResponseBody
-    public String showOneAlbum(@PathVariable int id, Model model){
-        model.addAttribute("id", id);
+    public String showOneAlbum(@PathVariable long id, Model model){
+        model.addAttribute("posts", postDao.getById(id));
         return  "posts/show";
     }
 
