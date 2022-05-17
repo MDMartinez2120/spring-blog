@@ -7,10 +7,10 @@
 <body>
     <h1>all the posts</h1>
 
-    <ul th:each="posts : ${posts}">
+    <ul th:each="post : ${posts}">
         <li>
-        <h2 th:text="${posts.title}"> </h2>
-        <p th:text="${posts.body}"> </p>
+        <h2 th:text="${post.title}"> </h2>
+        <p th:text="${post.description}"> </p>
         </li>
     </ul>
 </body>

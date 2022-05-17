@@ -1,6 +1,7 @@
 package com.codeup.springblog.controller;
 
 import com.codeup.springblog.model.Post;
+import com.codeup.springblog.repositories.PostRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/posts")
 public class PostController {
+
+    private final PostRepository postDao;
+
+    public PostController(PostRepository postDao) {
+        this.postDao = postDao;
+    }
+
     @GetMapping()
 //    @ResponseBody <- only use this when you want text to display.
     public String allPosts(Model model) {
@@ -32,16 +40,19 @@ public class PostController {
     }
 
     @GetMapping("/create")
-    @ResponseBody
+//    @ResponseBody
     public String createPosts(){
-        return "this is where you would create the posts";
+        return "posts/create";
     }
 
     @PostMapping("/create")
-    @ResponseBody
-    public String createAlbum(){
-        return "this is where the logic would be for when the crate a new post.";
+    public String createAlbum(@RequestParam(name = "title")String title,@RequestParam(name = "description")String description){
+        Post post = new Post(title, description);
+        postDao.save(post);
+        return "redirect:/posts";
     }
+
+
 }
 
 
