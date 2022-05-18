@@ -10,7 +10,9 @@
     <ul th:each="post : ${posts}">
         <li>
         <h2 th:text="${post.title}"> </h2>
-        <p th:text="${post.description}"> </p>
+            <p th:text="${post.description}"> </p>
+            <p th:text="${post.getUser().getUsername()}"></p>
+            <p th:text="${post.getUser().getEmail()}"></p>
         </li>
     </ul>
 </body>

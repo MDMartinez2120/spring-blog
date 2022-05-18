@@ -35,8 +35,11 @@ public class Post {
         this.description = description;
     }
 
-
-
+    public Post(String title, String description, User user) {
+        this.title = title;
+        this.description = description;
+        this.user = user;
+    }
 
     public long getId() {
         return id;
@@ -60,5 +63,17 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
