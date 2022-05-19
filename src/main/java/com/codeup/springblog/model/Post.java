@@ -1,6 +1,9 @@
 package com.codeup.springblog.model;
 
+import org.aspectj.apache.bcel.generic.Tag;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -41,6 +44,14 @@ public class Post {
         this.user = user;
     }
 
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "post_tag",
+            joinColumns = {@JoinColumn(name = "post_id")},
+            inverseJoinColumns = {@JoinColumn(name = "tag_id")}
+    )
+    private List<Tag> tags;
+
     public long getId() {
         return id;
     }
@@ -65,8 +76,6 @@ public class Post {
         this.description = description;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
     private User user;
 
     public User getUser() {
