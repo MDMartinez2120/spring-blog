@@ -1,26 +1,26 @@
-package com.codeup.springblog.model;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = "details")
-public class PostDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(nullable = false)
-    private boolean isAwesome;
-
-    @Column(columnDefinition = "TEXT")
-    private String historyOfPost;
-
-    @Column(columnDefinition = "VARCHAR", length = 255)
-    private String topicDescription;
-
-    @OneToOne
-    private Post post;
-}
+//package com.codeup.springblog.model;
+//
+//import javax.persistence.*;
+//
+//@Entity
+//@Table(name = "details")
+//public class PostDetails {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private long id;
+//
+//    @Column(nullable = false)
+//    private boolean isAwesome;
+//
+//    @Column(columnDefinition = "TEXT")
+//    private String historyOfPost;
+//
+//    @Column(columnDefinition = "VARCHAR", length = 255)
+//    private String topicDescription;
+//
+//    @OneToOne
+//    private Post post;
+//}
 
 //One-to-One Exercise:
 //        0. Checkout out to a new clean branch called relationship-practice in your Spring Blog.

@@ -19,22 +19,33 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Post> posts;
+
+    public User() {
+
+    }
+
+    public User(long id, String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public User() {
 
+
+    public long getId() {
+        return id;
     }
 
-    public List<Post> getPosts() {
-        return posts;
-    }
-
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -60,9 +71,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Post> posts;
-
-
 }
+
