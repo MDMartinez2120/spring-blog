@@ -13,14 +13,14 @@ VALUES ('Test', 'This is just a test.', 1),
        ('Third Test', 'You know the drill.', 3);
 
 # INSERT INTO details(isAwesome, historyOfPost, topicDescription)
-# VALUES ('yes', '1st', 'testing'),
-#        ('no', '2nd', 'testing 2'),
-#        ('yes', '3rd', 'test 3')
+# VALUES ('yes', '1', 'description'),
+#        ('no', '2', 'description 2'),
+#        ('yes', '3', 'description 3');
 
 INSERT INTO post_images(title, url, post_id)
-VALUES ('Cat', 'https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg', 4),
-       ('Dog', 'https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2021/07/baby-doge-dogecoin-shiba-inu-gID_4.jpg', 4),
-       ('Bird', 'https://nas-national-prod.s3.amazonaws.com/aud_gbbc-2016_dark-eyed-junco_34384_kk_oh_photo-michele-black.jpg', 4),
+VALUES ('Cat', 'https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg', 1),
+       ('Dog', 'https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2021/07/baby-doge-dogecoin-shiba-inu-gID_4.jpg', 1),
+       ('Bird', 'https://nas-national-prod.s3.amazonaws.com/aud_gbbc-2016_dark-eyed-junco_34384_kk_oh_photo-michele-black.jpg', 2),
        ('Master Chief', 'https://www.looper.com/img/gallery/the-untold-truth-of-halos-master-chief/l-intro-1603465431.jpg', 3),
        ('Bloodhound', 'https://mintspace-media.fra1.digitaloceanspaces.com/wp-content/uploads/2022/01/11061744/bloodhound-apex-legends-videojuego-papel-pintado-3000x2000_42.jpg', 3),
        ('Daedric Warrior', 'https://jkhub.org/uploads/monthly_2019_10/photo-1764.thumb.jpg.5b0ad505d6af5a725a32b7261b6a2a9c.jpg', 3),

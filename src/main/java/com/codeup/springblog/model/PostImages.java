@@ -28,7 +28,6 @@ public class PostImages {
         this.title = image_title;
         this.url = url;
     }
-
     public PostImages(String image_title, String url) {
         this.title = image_title;
         this.url = url;

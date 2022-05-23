@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:replace="partials/header.html :: head">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/main.css">
     <title>Index</title>
 </head>
 <body>
 <h1 th:if="${posts}">All the Posts</h1>
-<h1 th:if="!${posts}">Landing Page</h1>
+<!--<h1 th:if="!${posts}">Landing Page</h1>-->
 
 <div th:if="${posts}" class="card">
 
@@ -35,8 +36,8 @@
 <!--            </div>-->
 
             <div class="flex-container d-flex flex-wrap">
-                <div th:each="image : ${post.postImages}" >
-                    <img th:src="${image.getUrl()}">
+                <div th:each="image : ${post.postImages}">
+                    <img th:src="${image.getUrl()}" class="col-md-4 px-0">
                 </div>
             </div>
         </div>
