@@ -5,6 +5,7 @@ import com.codeup.springblog.model.User;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
 import com.codeup.springblog.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -54,10 +55,17 @@ public class PostController {
 
     @PostMapping("/create")
     public String createAlbum(@RequestParam(name = "title")String title,@RequestParam(name = "description")String description){
-        User user = userDao.getById(1L);
+//        User user = userDao.getById(1L);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+//        post.setUser(user);
+
         Post post = new Post(title, description, user);
+
         emailService.prepareAndSend(post, post.getTitle(), post.getDescription());
+
         postDao.save(post);
+
         return "redirect:/posts";
     }
 }
