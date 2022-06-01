@@ -28,15 +28,8 @@ public class PostController {
     }
 
     @GetMapping()
-//    @ResponseBody <- only use this when you want text to display.
     public String allPosts(Model model) {
         List<Post>allPosts = postDao.findAll();
-//        Post newPost1 = new Post("car", "buy this sweet ride", 1);
-//        Post newPost2 = new Post("guitar", "buy this busted guitar", 2);
-//        List<Post> allPosts = new ArrayList<>();
-//        allPosts.add(newPost1);
-//        allPosts.add(newPost2);
-
         model.addAttribute("posts", allPosts);
         return "posts/index";
     }
@@ -48,19 +41,19 @@ public class PostController {
     }
 
     @GetMapping("/create")
-//    @ResponseBody
     public String createPosts(){
         return "posts/create";
     }
 
+
     @PostMapping("/create")
-    public String createAlbum(@RequestParam(name = "title")String title,@RequestParam(name = "description")String description){
+    public String createPost(@ModelAttribute Post post){
 //        User user = userDao.getById(1L);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-//        post.setUser(user);
+        post.setUser(user);
 
-        Post post = new Post(title, description, user);
+//        Post post = new Post(title, description, user);
 
         emailService.prepareAndSend(post, post.getTitle(), post.getDescription());
 

@@ -21,6 +21,29 @@ public class Post {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
 
+    @Column(length = 255)
+    private String url;
+
+    public Post(String title, String description, String url, User user, List<PostImages> postImages) {
+        this.title = title;
+        this.description = description;
+        this.url = url;
+        this.user = user;
+        this.postImages = postImages;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
